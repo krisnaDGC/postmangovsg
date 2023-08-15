@@ -135,6 +135,7 @@ const ProtectedEmailRecipients = ({
       )
       setPhase(ProtectPhase.PROCESSING)
     } catch (err) {
+      console.log(err)
       setErrorMessage((err as Error).message)
       setPhase(ProtectPhase.PREVIEW)
     }
