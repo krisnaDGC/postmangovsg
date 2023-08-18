@@ -12,6 +12,132 @@ servers:
 security:
   - bearerAuth: []
 paths:
+  /auth/otp:
+     post:
+       tags:
+         - Authentication
+       summary: Get otp for user
+       requestBody:
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                 email:
+                   type: string
+               required:
+               - email
+   
+       responses:
+         "200":
+           content:
+             application/json:
+               schema:
+                 type: object
+         "500":
+            description: Internal Server Error
+  /auth/login:
+    post:
+      summary: Verify user otp
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                otp:
+                    type: string
+              required:
+              - email
+              - otp
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "401":
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+            description: Internal Server Error
+  /auth/login/sgid:
+   get:
+     summary: Get the authorisation url for 
+     tags:
+       - Authentication
+     responses:
+       "200":
+         content:
+           application/json:
+             schema:
+               type: object
+       "500":
+          description: Internal Server Error
+  /auth/login/sgid:
+   post:
+     summary: Verify sgid authorisation code
+     tags:
+       - Authentication
+     requestBody:
+       required: true
+       content:
+         application/json:
+           schema:
+             type: object
+             properties:
+               code:
+                  type: string
+             required:
+             - code
+     responses:
+       "200":
+         content:
+           application/json:
+             schema:
+               type: object
+       "401":
+         content:
+           application/json:
+             schema:
+               type: object
+       "500":
+          description: Internal Server Error
+  /auth/userinfo:
+   get:
+     summary: get logged in user 
+     tags:
+       - Authentication
+     responses:
+       "200":
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                 email:
+                   type: string
+  /auth/logout:
+   get:
+     summary: logs user out
+     tags:
+       - Authentication
+     responses:
+       "200":
+         content:
+           application/json:
+             schema:
+               type: object
+       "500":
+          description: Internal Server Error
   /campaigns:
     get:
       security:
