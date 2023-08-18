@@ -366,7 +366,7 @@ const sendFinalizedNotification = async (campaignId: number): Promise<void> => {
       config.get('mailFrom'),
       config.get('mailConfigurationSet')
     )
-    const isEmailSent = await NotificationService.sendEmail(mailClient, mail)
+     const isEmailSent = await NotificationService.sendEmail(mailClient, mail)
     if (isEmailSent) {
       logger.info({
         message: 'Notification email successfully sent',

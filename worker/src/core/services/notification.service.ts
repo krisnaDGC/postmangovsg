@@ -14,7 +14,7 @@ const sendEmail = async (
   mail: MailToSend,
   opts?: SendEmailOpts
 ): Promise<boolean> => {
-  try {
+  try { 
     await mailClient.sendMail(mail, opts)
     return true
   } catch (e) {
