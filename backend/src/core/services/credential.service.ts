@@ -97,6 +97,7 @@ export const InitCredentialService = (redisService: RedisService) => {
           ? { Tags: [{ Key: 'environment', Value: config.get('env') }] }
           : {}),
       })
+      
       logger.info({
         message: 'Successfully stored credential in AWS secrets manager',
         ...logMeta,

@@ -497,7 +497,7 @@ const config: Config<ConfigSchema> = convict({
   },
   defaultCountryCode: {
     doc: 'Country code to prepend to phone numbers',
-    default: '65',
+    default: '855',
     env: 'DEFAULT_COUNTRY_CODE',
   },
   telegramOptions: {

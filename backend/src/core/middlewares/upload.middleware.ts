@@ -29,6 +29,8 @@ const uploadStartHandler = async (
       transaction_id: signedKey,
     })
   } catch (err) {
+    console.log("error",err);
+    
     logger.error({
       message: 'Unable to generate presigned URL',
       error: err,

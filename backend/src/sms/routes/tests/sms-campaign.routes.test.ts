@@ -83,7 +83,7 @@ describe('GET /campaign/{id}/sms', () => {
   })
 })
 
-describe('POST /campaign/{campaignId}/sms/credentials', () => {
+describe('POST /campaign/{campaignId}/sms/npm ', () => {
   afterEach(async () => {
     // Reset number of calls for mocked functions
     jest.clearAllMocks()
